@@ -10,18 +10,8 @@ function AntFarm() {
         color: [38, 38, 38],
         size: 10,
         maxEnergy: 10,
-        reproduceLv: 2,
+        reproduceLv: 1,
         wait: function() { this.energy = 10 },
-        move: false
-    });
-
-    terra.registerCreature({
-        type: 'Food',
-        color: [38, 217, 217],
-        size: 10,
-        maxEnergy: 100,
-        reproduceLv: 2,
-        wait: function() { this.energy = 100 },
         move: false
     });
 
@@ -29,15 +19,14 @@ function AntFarm() {
         type: 'Ant',
         color: [120, 0, 240],
         sustainability: 1,
-        reproduceLv: 0.99999,
+        reproduceLv: 1,
         actionRadius: 1
     });
 
     var ex1 = new terra.Terrarium(100, 100, { id: 'ex1' });
     ex1.grid = ex1.makeGridWithDistribution([
-        ['Dirt', 98.99],
-        ['Food', 1],
-        ['Ant', 0.01]
+        ['Dirt', 99.9],
+        ['Ant', 0.1]
     ]);
 
     ex1.animate();
@@ -83,43 +72,4 @@ function BrutesAndBullies() {
         ['bully', 5]
     ]);
     bbTerrarium.animate();
-};
-
-function AntFarm() {
-    terra.registerCreature({
-        type: 'Dirt',
-        color: [38, 38, 38],
-        size: 10,
-        maxEnergy: 10,
-        reproduceLv: 2,
-        wait: function() { this.energy = 10 },
-        move: false
-    });
-
-    terra.registerCreature({
-        type: 'Food',
-        color: [38, 217, 217],
-        size: 10,
-        maxEnergy: 100,
-        reproduceLv: 2,
-        wait: function() { this.energy = 100 },
-        move: false
-    });
-
-    terra.registerCreature({
-        type: 'Ant',
-        color: [120, 0, 240],
-        sustainability: 1,
-        reproduceLv: 0.99999,
-        actionRadius: 1
-    });
-
-    var ex1 = new terra.Terrarium(100, 100, { id: 'ex1' });
-    ex1.grid = ex1.makeGridWithDistribution([
-        ['Dirt', 98.99],
-        ['Food', 1],
-        ['Ant', 0.01]
-    ]);
-
-    ex1.animate();
 };

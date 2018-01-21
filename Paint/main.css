@@ -1,0 +1,21 @@
+div.buttons button {
+    background: #e5e5e5;
+    border: solid 1px black;
+    transition: 0.2s;
+}
+
+div.buttons button:hover {
+    background: #ffffff;
+}
+
+div.buttons button:focus {
+    background: #7c7c7c;
+}
+
+canvas {
+    border: solid 1px black;
+}
+
+* {
+    margin: 1px;
+}

@@ -9,7 +9,7 @@ DMLib.libraries = {
     angular: "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js",
     angularbeta: "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js",
     matter: "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"
-};
+    };
 
 //Setup Modules
 DMLib.base = DMLib;

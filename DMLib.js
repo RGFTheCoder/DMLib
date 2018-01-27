@@ -78,6 +78,16 @@ DMLib.util = {
         }),
         loadJSON: (function(filepath) {
             return JSON.parse(DMLib.util.file.loadFile(filepath));
+        }),
+        requireMany: (function(url, callback = (function() {})) {
+            for (i = 0; i < url.length; i++) {
+                var script = document.createElement("script")
+                script.type = "text/javascript";
+                script.src = url[i];
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+
+            setTimeout(callback, 1000);
         })
     },
     loadLib: (function(name, callback) {

@@ -15,7 +15,8 @@ DMLib.libraries = {
     preload: "https://code.createjs.com/preloadjs-0.6.2.min.js",
     d3: "https://d3js.org/d3.v4.min.js",
     paper: "https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js",
-    p5: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"
+    p5: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js",
+    matter: "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"
 };
 
 //Setup Modules

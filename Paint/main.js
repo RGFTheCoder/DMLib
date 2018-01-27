@@ -1,6 +1,12 @@
 var canvas;
 var ctx;
 
+let url = new URL(window.location.href);
+let searchParams = new URLSearchParams(url.search);
+//console.log(searchParams.get('w'));
+
+var img;
+
 var setColor;
 
 var colors = {};
@@ -10,6 +16,7 @@ colors.purple = "#cb3594";
 colors.green = "#659b41";
 colors.yellow = "#ffcf33";
 colors.brown = "#986928";
+colors.blue = "#4682B4";
 
 var curColor = colors.red;
 var clickColor = new Array();
@@ -28,19 +35,18 @@ var clickTool = new Array();
 var curTool = "marker";
 
 window.onload = (function() {
-    canvas = DMLib.canvas.new("drawing");
+    canvas = DMLib.canvas.new("drawing", searchParams.get('w'), searchParams.get('h'));
     ctx = canvas.element.getContext("2d");
+
+    img = DMLib.dom.get("img#export");
 
     function onElementFocused(e) {
         if (e && e.target) {
-
             document.activeElement = e.target == document ? null : e.target;
         }
     }
 
-    if (document.addEventListener) {
-        canvas.element.addEventListener("focus", onElementFocused, true);
-    }
+    canvas.event("focus", onElementFocused);
 
     canvas.set("onmousedown", function(e) {
         var mouseX = e.pageX - this.offsetLeft;
@@ -115,8 +121,7 @@ window.onload = (function() {
             ctx.lineWidth = radius;
             ctx.stroke();
         }
-        context.globalAlpha = 1;
+        ctx.globalAlpha = 1;
     }
-
 
 });

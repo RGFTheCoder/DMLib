@@ -8,7 +8,14 @@ DMLib.libraries = {
     pixi: "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js",
     angular: "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js",
     angularbeta: "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js",
-    matter: "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"
+    create: "https://code.createjs.com/createjs-2015.11.26.min.js",
+    easel: "https://code.createjs.com/easeljs-0.8.2.min.js",
+    tween: "https://code.createjs.com/tweenjs-0.6.2.min.js",
+    sound: "https://code.createjs.com/soundjs-0.6.2.min.js",
+    preload: "https://code.createjs.com/preloadjs-0.6.2.min.js",
+    d3: "https://d3js.org/d3.v4.min.js",
+    paper: "https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js",
+    p5: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"
 };
 
 //Setup Modules
@@ -82,7 +89,11 @@ DMLib.dom = {
         return new DMLib.dom.classes.element(document.querySelectorAll(selector)[0]);
     }),
     getAll: (function(selector) {
-        return new DMLib.dom.classes.elementGroup(document.querySelectorAll(selector));
+        var elArr = [];
+        document.querySelectorAll(selector).forEach(element => {
+            elArr.push(new DMLib.dom.classes.element(element));
+        });
+        return new DMLib.dom.classes.elementGroup(elArr);
     }),
     classes: {
         element: (function(element) {
@@ -115,6 +126,11 @@ DMLib.dom.classes.element.prototype = {
     }),
     get: (function(property) {
         return this.element[property];
+    }),
+    event: (function(event, func) {
+        if (document.addEventListener) {
+            this.element.addEventListener(event, func, true);
+        }
     })
 };
 
@@ -122,13 +138,13 @@ DMLib.dom.classes.elementGroup.prototype = {
     html: (function(html) {
         if (html) {
             this.elements.forEach(element => {
-                element.innerHTML = html;
+                element.element.innerHTML = html;
             });
             return true;
         } else {
-            var allHtml = "";
+            var allHtml = [];
             this.elements.forEach(element => {
-                allHtml += element.innerHTML;
+                allHtml.push(element.element.innerHTML);
             });
             return allHtml;
         }
@@ -136,15 +152,29 @@ DMLib.dom.classes.elementGroup.prototype = {
     css: (function(style, value) {
         if (value) {
             this.elements.forEach(element => {
-                element.style[style] = value;
+                element.element.style[style] = value;
             });
+            return true;
         } else {
-            var allCSS = "";
+            var allCSS = [];
             this.elements.forEach(element => {
-                allCSS += element.style[style];
+                allCSS.push(element.element.style[style]);
             });
             return allCSS;
         }
+    }),
+    set: (function(property, value) {
+        this.elements.forEach(element => {
+            element.element[property] = value;
+        });
+        return true;
+    }),
+    get: (function(property) {
+        var allProp = [];
+        this.elements.forEach(element => {
+            allProp.push(element.element[property]);
+        });
+        return alallProplCSS;
     })
 };
 
@@ -158,5 +188,8 @@ DMLib.canvas = {
 
         document.body.appendChild(canvas);
         return new DMLib.dom.classes.element(document.getElementById(canvas.id));
+    }),
+    export: (function(canvas, img) {
+        img.set("src", canvas.element.toDataURL("image/png;base64;"));
     })
 };

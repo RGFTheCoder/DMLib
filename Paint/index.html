@@ -17,7 +17,10 @@
         <button onclick="curColor = colors.purple;">Purple</button>
         <button onclick="curColor = colors.green;">Green</button>
         <button onclick="curColor = colors.yellow;">Yellow</button>
+        <button onclick="curColor = colors.blue;">Blue</button>
         <button onclick="curColor = colors.brown;">Brown</button>
+        <input id="customcolor" type="color">
+        <button onclick="curColor = DMLib.dom.get('#customcolor').element.value;">Custom</button>
 
     </div>
     <div class="buttons sizes">
@@ -30,8 +33,9 @@
     <div class="buttons tools">
         <button onclick="curTool = 'marker';">Marker</button>
         <button onclick="curTool = 'eraser';">Eraser</button>
-
+        <button onclick="DMLib.canvas.export(canvas, img);">Export</button>
     </div>
+    <img id="export" src="">
 </body>
 
 </html>

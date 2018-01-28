@@ -88,7 +88,7 @@ DMLib.util = {
                 var script = document.createElement("script")
                 script.type = "text/javascript";
                 script.src = url[i];
-                document.getElementsByTagName("head")[0].appendChild(script);
+                setTimeout(document.getElementsByTagName("head")[0].appendChild(script), 100);
             }
 
             setTimeout(callback, 1000);

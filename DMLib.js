@@ -91,7 +91,7 @@ DMLib.util = {
                     script.src = url[i];
                     document.getElementsByTagName("head")[0].appendChild(script);
                 }
-            }), 5000);
+            }), 100);
 
             setTimeout(callback, 1000);
         })
@@ -100,7 +100,7 @@ DMLib.util = {
         setTimeout((function() {
             DMLib.util.file.require(DMLib.libraries[name], callback);
             console.log("Loaded " + (name.charAt(0).toUpperCase() + name.slice(1)) + " Library");
-        }));
+        }), 100);
     })
 
 };

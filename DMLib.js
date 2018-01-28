@@ -97,9 +97,12 @@ DMLib.util = {
         })
     },
     loadLib: (function(name, callback) {
-        DMLib.util.file.require(DMLib.libraries[name], callback);
-        console.log("Loaded " + (name.charAt(0).toUpperCase() + name.slice(1)) + " Library");
+        setTimeout((function() {
+            DMLib.util.file.require(DMLib.libraries[name], callback);
+            console.log("Loaded " + (name.charAt(0).toUpperCase() + name.slice(1)) + " Library");
+        }));
     })
+
 };
 
 //MODULE DOM

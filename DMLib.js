@@ -17,7 +17,11 @@ DMLib.libraries = {
     paper: "https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js",
     p5: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js",
     matter: "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js",
-    math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.20.1/math.min.js"
+    math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.20.1/math.min.js",
+    deeplearn: "https://cdn.jsdelivr.net/npm/deeplearn",
+    p5dom: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js",
+    p5sound: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"
+
 
 };
 

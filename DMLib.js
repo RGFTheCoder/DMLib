@@ -91,7 +91,7 @@ DMLib.util = {
                     script.src = url[i];
                     document.getElementsByTagName("head")[0].appendChild(script);
                 }
-            }), 100);
+            }), 5000);
 
             setTimeout(callback, 1000);
         })
